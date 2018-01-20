@@ -14,9 +14,12 @@ ENV PORT=8000
 ENV JAVA_OPTS=""
 
 # Installing DynamoDB
+RUN apt-get update
 RUN apt-get install wget -y
 RUN wget ${DOWNLOAD_URL}
-RUN apt-get uninstall wget -y
+RUN apt-get remove wget -y
+RUN apt-get autoremove -y
+RUN apt-get clean -y
 WORKDIR /opt/dynamodb-local/
 RUN tar zxvf /dynamodb_local_${DYNAMO_DB_VERSION}.tar.gz -C /opt/dynamodb-local/
 RUN rm /dynamodb_local_${DYNAMO_DB_VERSION}.tar.gz
