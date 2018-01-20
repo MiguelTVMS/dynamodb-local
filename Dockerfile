@@ -3,6 +3,8 @@ FROM openjdk:8-jre-slim
 LABEL maintainer="joao@miguel.ms"
 LABEL description="DynamoDB Container to be used locally for development"
 LABEL repository="https://github.com/jmtvms/dynamodb-local.git"
+LABEL bugs="https://github.com/jmtvms/dynamodb-local/issues"
+LABEL github="https://github.com/jmtvms/dynamodb-local"
 LABEL version="1.0.0"
 
 ENV DYNAMO_DB_DOWNLOAD_REGION="us-west-2"
