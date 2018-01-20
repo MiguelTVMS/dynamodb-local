@@ -11,12 +11,12 @@ In this container I didn't use the `CMD` on the docker file so you can for examp
 docker run -d --rm -p 8000:8000 jmtvms/dynamodb-local 
 
 ```
-## Environments variables
+#### Environments variables
 
-### **JAVA_OPTS**
+##### **JAVA_OPTS**
 
 You can set options to the jvm running the DynamoDB adding them here. Be sure to know what you are doing or the DynamoDB may even not start.
 
-### **PORT**
+##### **PORT**
 
 You can change the port wich DynamoDB service is running inside the container. I doubt anyone wants to mess with that since you can map the port on the host running the container but I'm really adept of flexibility...
