@@ -4,7 +4,7 @@ DynamoDB Container to be used for local environments.
 
 The main idea of this container is to facilitate the utilization of DynamoDB for local development
 
-```bash
+```sh
 
 docker run -d --rm -p 8000:8000 jmtvms/dynamodb-local
 
@@ -18,18 +18,24 @@ Those are the available environment variables for this container.
 
 You can set options to the jvm running the DynamoDB adding them here. Be sure to know what you are doing or the DynamoDB may even not start.
 
-```bash
+```sh
 
 docker run -d --rm -p 2000:2000 -e "JAVA_OPTS=-Xms256m" jmtvms/dynamodb-local
 
 ```
 
-### PORT
+## Parameters
 
-You can change the port wich DynamoDB service is running inside the container. I doubt anyone wants to mess with that since you can map the port on the host running the container but I'm really adept of flexibility...
+You can pass DynamoDB command line parameters to the containers using the docker arguments on the run command. You can learn more about those parameters [here](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html).
 
-```bash
+The argument _--shareDb_ is passed by default but if you pass any argument on the run command the default arguments are overridden, so if you want the _--shareDb_ to be kept you have to pass it again.
 
-docker run -d --rm -p 2000:2000 -e "PORT=2000" jmtvms/dynamodb-local
+Example:
+
+```sh
+
+docker run -d --rm -p 2000:2000 jmtvms/dynamodb-local --sharedDb -port 2000
 
 ```
+
+This command will run the DynamoDB inside the container in the port 2000.
